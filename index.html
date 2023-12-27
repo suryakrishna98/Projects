@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Menu App</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <a class="navbar-brand" href="#">Surya Dine-IN</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto color-white">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white bg-warning custom-rounded"
+              onclick="booking()"
+              href="#"
+              >Book a Table</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white bg-danger custom-rounded"
+              onclick="checkOut()"
+              href="#"
+              >Check-out</a
+            >
+          </li>
+        </ul>
+        <span id="cartCounter" class="navbar-text ml-2 text-white bg-dark p-2"
+          >Cart: 0</span
+        >
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4 text-white">Menu</h1>
+      <h3 class="text-white" id="booking"></h3>
+
+      <!-- Menu Items -->
+      <div id="menu" class="row"></div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
