@@ -1,0 +1,149 @@
+// Sample menu data (replace it with your actual menu data)
+const menuData = [
+  {
+    name: "Dish 1",
+    price: 10.99,
+    image: "images/1.jpg",
+  },
+  {
+    name: "Dish 2",
+    price: 15.99,
+    image: "images/2.jpg",
+  },
+  {
+    name: "Dish 3",
+    price: 8.99,
+    image: "images/3.jpg",
+  },
+  {
+    name: "Dish 1",
+    price: 10.99,
+    image: "images/4.jpg",
+  },
+  {
+    name: "Dish 2",
+    price: 15.99,
+    image: "images/5.jpg",
+  },
+  {
+    name: "Dish 3",
+    price: 8.99,
+    image: "images/6.jpg",
+  },
+  {
+    name: "Dish 1",
+    price: 10.99,
+    image: "images/7.jpg",
+  },
+  {
+    name: "Dish 2",
+    price: 15.99,
+    image: "images/8.jpg",
+  },
+  {
+    name: "Dish 3",
+    price: 8.99,
+    image: "images/9.jpg",
+  },
+  {
+    name: "Dish 1",
+    price: 10.99,
+    image: "images/10.jpg",
+  },
+  {
+    name: "Dish 2",
+    price: 15.99,
+    image: "images/11.jpg",
+  },
+  {
+    name: "Dish 3",
+    price: 8.99,
+    image: "images/11.jpg",
+  },
+  // Add more items as needed
+];
+let cartCounter = 0;
+
+function proceed() {
+  alert("You clicked Yes! Proceeding...");
+  // Perform actions if the user clicked Yes
+}
+
+// Function to generate menu items
+function generateMenuItems() {
+  const menuContainer = document.getElementById("menu");
+
+  // Clear existing menu items
+  menuContainer.innerHTML = "";
+
+  // Loop through menuData and create HTML for each item
+  menuData.forEach((item) => {
+    const menuItemHTML = `
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card">
+          <img src="${item.image}" class="card-img-top" alt="${item.name}">
+          <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <p class="card-text">Price: ₹ ${item.price.toFixed(2)}</p>
+            <button class="btn btn-primary" onclick="addToCart('${
+              item.name
+            }', ${item.price})">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Append the HTML to the menu container
+    menuContainer.innerHTML += menuItemHTML;
+  });
+}
+
+function booking() {
+  const userConfirmed = confirm("Are you Sure? do you want to book the Table?");
+
+  // Check the user's choice
+  if (userConfirmed) {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let code = "";
+
+    for (let i = 0; i < 8; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      code += characters.charAt(randomIndex);
+    }
+
+    alert("Your table has booked: " + code);
+    // Perform actions if the user clicked OK
+  } else {
+    alert("You clicked Cancel. Action canceled.");
+    // Perform actions if the user clicked Cancel
+  }
+}
+
+// Function to handle adding an item to the cart
+function addToCart(itemName, itemPrice) {
+  // Increment the cart counter
+  cartCounter++;
+
+  // Display the cart counter in the navbar
+  document.getElementById("cartCounter").innerText = `Cart: ${cartCounter}`;
+
+  // Calculate the total price (for demonstration purposes, you may want to store this in a more sophisticated way)
+  const totalPrice = cartCounter * itemPrice;
+
+  // Display an alert with the item details and total price
+  alert(
+    `Added ${itemName} to the cart.\nTotal Price: ₹${totalPrice.toFixed(2)}`
+  );
+}
+
+function checkOut() {
+  if (cartCounter === 0) {
+    alert("Add some thing to cart");
+  } else {
+    alert("Thanks for shopping");
+    cartCounter = 0;
+  }
+}
+
+// Call the function to generate menu items when the page loads
+document.addEventListener("DOMContentLoaded", generateMenuItems);
